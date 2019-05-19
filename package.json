@@ -2,13 +2,22 @@
   "name": "winbonacci",
   "version": "1.0.0",
   "description": "Winbonacci chrome extension",
-  "scripts": {
-    "test": "test"
-  },
+  "author": "Jesus Campos",
+  "license": "UNLICENSED",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jac0117/winbonacci.git"
   },
-  "author": "Jesus Campos",
-  "license": "UNLICENSED"
+  "scripts": {
+    "start": "mkdir -p ./build/dev && webpack --config ./webpack/webpack.config.dev.js"
+  },
+  "devDependencies": {
+    "@babel/core": "7.4.4",
+    "babel-loader": "8.0.6",
+    "copy-webpack-plugin": "5.0.3",
+    "lodash": "4.17.11",
+    "webpack": "4.31.0",
+    "webpack-cli": "3.3.2",
+    "webpack-version-file-plugin": "0.3.3"
+  }
 }
