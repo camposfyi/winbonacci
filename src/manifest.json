@@ -3,6 +3,13 @@
   "name": "Winbonacci",
   "version": "1.0.0",
   "description": "Winbonacci chrome extension",
+  "icons": {
+    "16": "images/icon-16.png",
+    "24": "images/icon-24.png",
+    "32": "images/icon-32.png",
+    "64": "images/icon-64.png",
+    "128": "images/icon-128.png"
+  },
   "browser_action": {
     "default_popup": "html/popup.html"
   },
