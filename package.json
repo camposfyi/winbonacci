@@ -9,15 +9,19 @@
     "url": "git+https://github.com/jac0117/winbonacci.git"
   },
   "scripts": {
-    "start": "mkdir -p ./build/dev && webpack --config ./webpack/webpack.config.dev.js"
+    "start": "mkdir -p ./build/dev && webpack --config ./webpack/webpack.config.dev.js",
+    "test": "mocha-webpack --webpack-config ./webpack/webpack.config.test.js \"src/js/**/*.spec.js\""
   },
   "devDependencies": {
     "@babel/core": "7.4.4",
     "babel-loader": "8.0.6",
     "copy-webpack-plugin": "5.0.3",
     "lodash": "4.17.11",
+    "mocha": "6.1.4",
+    "mocha-webpack": "v2.0.0-beta.0",
     "webpack": "4.31.0",
     "webpack-cli": "3.3.2",
+    "webpack-node-externals": "1.7.2",
     "webpack-version-file-plugin": "0.3.3"
   }
 }
