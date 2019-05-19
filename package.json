@@ -10,7 +10,7 @@
   },
   "scripts": {
     "start": "mkdir -p ./build/dev && webpack --config ./webpack/webpack.config.dev.js",
-    "test": "mocha-webpack --webpack-config ./webpack/webpack.config.test.js \"src/js/**/*.spec.js\""
+    "test": "mocha-webpack --watch --webpack-config ./webpack/webpack.config.test.js \"test/**/*.spec.js\""
   },
   "devDependencies": {
     "@babel/core": "7.4.4",
