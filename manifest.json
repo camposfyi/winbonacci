@@ -1,0 +1,16 @@
+{
+  "manifest_version": 2,
+  "name": "Winbonacci",
+  "version": "1.0.0",
+  "description": "Winbonacci chrome extension",
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "options_page": "options.html",
+  "permissions": []
+}

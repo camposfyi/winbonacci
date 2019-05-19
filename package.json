@@ -1,0 +1,14 @@
+{
+  "name": "winbonacci",
+  "version": "1.0.0",
+  "description": "Winbonacci chrome extension",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jac0117/winbonacci.git"
+  },
+  "author": "Jesus Campos",
+  "license": "UNLICENSED"
+}
