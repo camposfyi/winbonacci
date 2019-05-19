@@ -3,14 +3,7 @@ import {each, find} from 'lodash';
 import tabManager from './lib/tabManager';
 
 chrome.runtime.onInstalled.addListener(() => {
-  tabManager.init();
-
-  chrome.tabs.query({}, (tabs) => {
-    each(tabs, tab => tabManager.add(tab.id));
-
-    const activeTab = find(tabs, {active: true});
-    updateBadgeForTab(activeTab.id);
-  });
+  initializeTabs();
 });
 
 chrome.tabs.onCreated.addListener(tab => {
@@ -32,6 +25,23 @@ chrome.tabs.onUpdated.addListener( (tabId, changeInfo, tab) => {
     updateBadgeForTab(tab.id);
   }
 });
+
+chrome.runtime.onMessage.addListener(message => {
+  if (message === 'winbonacci-reset') {
+    initializeTabs();
+  }
+});
+
+function initializeTabs() {
+  tabManager.init();
+
+  chrome.tabs.query({}, (tabs) => {
+    each(tabs, tab => tabManager.add(tab.id));
+
+    const activeTab = find(tabs, {active: true});
+    updateBadgeForTab(activeTab.id);
+  });
+}
 
 function updateBadgeForTab(tabId) {
   const tab = tabManager.get(tabId);

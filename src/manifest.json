@@ -3,6 +3,7 @@
   "name": "Winbonacci",
   "version": "1.0.0",
   "description": "Winbonacci chrome extension",
+  "permissions": ["storage"],
   "icons": {
     "16": "images/icon-16.png",
     "24": "images/icon-24.png",
@@ -14,10 +15,8 @@
     "default_popup": "html/popup.html"
   },
   "background": {
-    "scripts": [
-      "js/background.js"
-    ]
+    "scripts": ["js/background.js"],
+    "persistent": false
   },
-  "options_page": "html/options.html",
-  "permissions": []
+  "options_page": "html/options.html"
 }

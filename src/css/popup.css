@@ -1,0 +1,38 @@
+body {
+  background: #232323;
+}
+
+.reset-button-container {
+  padding: 10px;
+}
+
+#resetButton {
+  width:100px;
+  height:40px;
+  background-color: #784BF5;
+  border:1px solid #784BF5;
+  color: #fff;
+  border-radius:2px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 400;
+  outline: none;
+}
+
+
+#resetButton:hover {
+  opacity: 0.8;
+}
+
+.reset-notification-container {
+  margin-top: 12px;
+  display: none;
+}
+
+.reset-notification {
+  background:#03a679;
+  color:#f0f0f0;
+
+  padding: 6px;
+  text-align: center;
+}
