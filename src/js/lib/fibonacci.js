@@ -1,8 +1,9 @@
-const fibonacci = (num) => {
-  if (num <= 0) return 0;
-  if (num === 1) return 1;
+const fibonacci = (n, memoization = {}) => {
+  if (memoization[n]) return memoization[n];
+  if (n === 1) return 1;
+  if (n <= 0) return 0;
 
-  return fibonacci(num - 1) + fibonacci(num - 2);
+  return fibonacci(n - 1, memoization) + fibonacci(n - 2, memoization);
 };
 
 export default fibonacci;

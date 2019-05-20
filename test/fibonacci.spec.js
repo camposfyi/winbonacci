@@ -15,7 +15,7 @@ describe('fibonacci.js', () => {
     assert.strictEqual(fibonacci(1), 1);
   });
 
-  it ('adds values of two previous numbers', () => {
+  it ('adds results of two previous computations', () => {
     assert.strictEqual(fibonacci(3), 2);
   });
 
