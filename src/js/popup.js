@@ -1,5 +1,3 @@
-/* global chrome */
-
 document.addEventListener('DOMContentLoaded', () => {
   const resetButton = document.getElementById('resetButton');
   resetButton.addEventListener('click', () => {

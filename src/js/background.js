@@ -1,4 +1,3 @@
-/* global chrome */
 import {each, find} from 'lodash';
 import tabManager from './lib/tabManager';
 
@@ -8,7 +7,10 @@ chrome.runtime.onInstalled.addListener(() => {
 
 chrome.tabs.onCreated.addListener(tab => {
   tabManager.add(tab.id);
-  updateBadgeForTab(tab.id);
+
+  if (tab.active) {
+    updateBadgeForTab(tab.id);
+  }
 });
 
 chrome.tabs.onRemoved.addListener(tabId => {
@@ -20,9 +22,12 @@ chrome.tabs.onActivated.addListener(({tabId}) => {
 });
 
 chrome.tabs.onUpdated.addListener( (tabId, changeInfo, tab) => {
-  if (changeInfo.status === 'complete') {
+  if (changeInfo.status === 'complete' && !(tab.url === 'chrome://newtab/')) {
     tabManager.update(tab.id);
-    updateBadgeForTab(tab.id);
+
+    if (tab.active) {
+      updateBadgeForTab(tab.id);
+    }
   }
 });
 

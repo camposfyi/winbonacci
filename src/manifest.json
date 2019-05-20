@@ -3,7 +3,7 @@
   "name": "Winbonacci",
   "version": "1.0.0",
   "description": "Winbonacci chrome extension",
-  "permissions": ["storage"],
+  "permissions": ["tabs","storage"],
   "icons": {
     "16": "images/icon-16.png",
     "24": "images/icon-24.png",
