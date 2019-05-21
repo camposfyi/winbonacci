@@ -27,7 +27,7 @@ chrome.tabs.onActivated.addListener(({tabId}) => {
 
 chrome.tabs.onUpdated.addListener( (tabId, changeInfo, tab) => {
   if (changeInfo.status === 'complete' && !tab.url.startsWith('chrome')) {
-    tabManager.update(tab.id);
+    tabManager.refresh(tab.id);
 
     if (tab.active) {
       updateBadgeForTab(tab.id);

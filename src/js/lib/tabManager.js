@@ -52,7 +52,7 @@ export default {
     return nextN;
   },
 
-  update(tabId) {
+  refresh(tabId) {
     this.remove(tabId);
     this.add(tabId);
   }
