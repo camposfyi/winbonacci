@@ -68,5 +68,5 @@ function initializeTabs() {
 
 function updateBadgeForTab(tabId) {
   const tab = tabManager.get(tabId);
-  chrome.browserAction.setBadgeText({text: tab.fibValue.toString()});
+  chrome.browserAction.setBadgeText({text: tab.value.toString()});
 }

@@ -2,57 +2,55 @@ import {each, find} from 'lodash';
 import storage from './storage';
 import fibonacci from './fibonacci';
 
-class TabManager {
+const tabsKey = 'winbonacci-tabs';
+const nKey = 'winbonacci-n';
 
-  constructor() {
-    this.tabsKey = 'winbonacci-tabs';
-    this.nKey = 'winbonacci-n';
-  }
+export default {
 
   init() {
-    storage.set(this.tabsKey, []);
-    storage.set(this.nKey, 0);
-  }
+    storage.setItem(tabsKey, []);
+    storage.setItem(nKey, 0);
+  },
 
   add(tabId) {
-    const tabs = storage.get(this.tabsKey);
+    const tabs = storage.getItem(tabsKey);
 
     const memoization = this.memoize(tabs);
     const n = this.advanceN();
-    const fibValue = fibonacci(n, memoization);
+    const value = fibonacci(n, memoization);
 
-    const tab = {tabId, n, fibValue};
+    const tab = {tabId, n, value};
     tabs.push(tab);
 
-    storage.set(this.tabsKey, tabs);
-  }
+    storage.setItem(tabsKey, tabs);
+  },
 
   memoize(tabs = []) {
     const memoization = {};
     each(tabs, tab => {
-      memoization[tab.number] = tab.fibValue;
+      memoization[tab.number] = tab.value;
     });
 
     return memoization;
-  }
+  },
 
   get(tabId) {
-    const tabs = storage.get(this.tabsKey);
+    const tabs = storage.getItem(tabsKey);
     return find(tabs, {tabId});
-  }
+  },
 
   remove(tabId) {
-    const tabs = storage.get(this.tabsKey);
-    storage.set(this.tabsKey, _.reject(tabs, {tabId}));
-  }
+    const tabs = storage.getItem(tabsKey);
+    storage.setItem(tabsKey, _.reject(tabs, {tabId}));
+  },
 
   advanceN() {
-    const currentN = storage.get(this.nKey);
+    const currentN = storage.getItem(nKey);
     const nextN = currentN + 1;
-    storage.set(this.nKey, nextN);
+    storage.setItem(nKey, nextN);
 
     return nextN;
-  }
+  },
 
   update(tabId) {
     this.remove(tabId);
@@ -60,5 +58,3 @@ class TabManager {
   }
 
 }
-
-export default new TabManager();

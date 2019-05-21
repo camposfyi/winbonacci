@@ -1,10 +1,10 @@
-function onResetClicked () {
+function onResetClicked() {
   const message = {type: 'winbonacci-reset'};
   chrome.runtime.sendMessage(message, () => {
     const notificationElement = document.getElementById('resetNotification');
     notificationElement.style.display = 'block';
 
-    updateWithCurrentFibValue();
+    updateWibonacciStats();
 
     setTimeout(() => {
       notificationElement.style.display = 'none';
@@ -12,15 +12,14 @@ function onResetClicked () {
   });
 }
 
-function updateWithCurrentFibValue() {
-
-  chrome.tabs.query({active:true, windowType: 'normal', currentWindow: true}, tabs => {
+function updateWibonacciStats() {
+  chrome.tabs.query({active: true, windowType: 'normal', currentWindow: true}, tabs => {
     const activeTab = tabs[0];
     const message = {type: 'winbonacci-get-tab', tabId: activeTab.id};
 
-    chrome.runtime.sendMessage(message, (tab) => {
-      setElementText('fibN', tab.n.toString());
-      setElementText('fibValue', tab.fibValue.toString());
+    chrome.runtime.sendMessage(message, ({n = 0, value = 0}) => {
+      setElementText('wibonacciN', n.toString());
+      setElementText('wibonacciValue', value.toString());
     });
 
   });
@@ -35,5 +34,5 @@ document.addEventListener('DOMContentLoaded', () => {
   const resetButton = document.getElementById('resetButton');
   resetButton.addEventListener('click', onResetClicked);
 
-  updateWithCurrentFibValue();
+  updateWibonacciStats();
 });

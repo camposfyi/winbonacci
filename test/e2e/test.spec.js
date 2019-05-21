@@ -7,32 +7,32 @@ describe('Wibonacci e2e tests', () => {
 
   const extensionId = 'fekagkeagpgcdcfgbnlnbmljglnmbohe';
 
-  it('initializes fibonacci sequence on browser start', async () => {
+  it('initializes wibonacci sequence on browser start', async () => {
     await loadPopupPage();
 
-    await assertFibState(1, 1);
+    await assertWibonacciState(1, 1);
   });
 
-  it('increments fibonacci sequence on new tab', async () => {
+  it('increments wibonacci sequence on new tab', async () => {
     await openTab();
     await switchToTab(1);
 
-    await assertFibState(2, 1);
+    await assertWibonacciState(2, 1);
   });
 
-  it('increments fibonacci sequence on page load' , async () => {
+  it('increments wibonacci sequence on page load' , async () => {
     await browser.get('https://google.com');
 
-    await assertFibState(3, 2);
+    await assertWibonacciState(3, 2);
   });
 
   it('resets the sequence when reset button is clicked', async () => {
-    await assertFibState(3, 2);
+    await assertWibonacciState(3, 2);
 
     await closeAllTabsExceptLast();
     element(by.id('resetButton')).click();
 
-    await assertFibState(1, 1);
+    await assertWibonacciState(1, 1);
   });
 
   async function closeAllTabsExceptLast() {
@@ -49,10 +49,10 @@ describe('Wibonacci e2e tests', () => {
     browser.driver.switchTo().window(lastTab);
   }
 
-  async function assertFibState(expectedN, expectedValue) {
+  async function assertWibonacciState(expectedN, expectedValue) {
     await loadPopupPage();
-    const n = await getNValue();
-    const value = await getFibValue();
+    const n = await getWibonacciN();
+    const value = await getWibonacciValue();
 
     assert.strictEqual(n, expectedN);
     assert.strictEqual(value, expectedValue);
@@ -64,13 +64,13 @@ describe('Wibonacci e2e tests', () => {
     });
   }
 
-  async function getNValue() {
-    const n = await element(by.id('fibN')).getText();
+  async function getWibonacciN() {
+    const n = await element(by.id('wibonacciN')).getText();
     return Number(n);
   }
 
-  async function getFibValue() {
-    const n = await element(by.id('fibValue')).getText();
+  async function getWibonacciValue() {
+    const n = await element(by.id('wibonacciValue')).getText();
     return Number(n);
   }
 

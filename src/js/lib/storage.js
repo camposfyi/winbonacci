@@ -1,19 +1,17 @@
 import {isUndefined} from 'lodash';
 
-class Storage {
+export default {
 
-  set(itemKey, itemValue) {
+  setItem(itemKey, itemValue) {
     if (isUndefined(itemKey) || isUndefined(itemValue)) {
       throw new Error('must provide key and value');
     }
 
     localStorage.setItem(itemKey, JSON.stringify(itemValue));
-  }
+  },
 
-  get(itemKey = '') {
+  getItem(itemKey = '') {
     const value = localStorage.getItem(itemKey);
     return value ? JSON.parse(value) : null;
   }
 }
-
-export default new Storage();

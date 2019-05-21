@@ -8,7 +8,7 @@ Winbonacci is a chrome extension that maintains a Fibonacci Sequence across all 
 #### How is the Fibonacci Sequence maintained?
 The extension has an internal tab manager that keeps track of all open tabs by storing the internal Chrome tab ID along with its corresponding Fibonacci properties (N and value) in local storage.
 ```
-{ tabId, n, fibValue}
+{ tabId, n, value}
 ```
 
 Due to the computation of Fibonacci being expensive, the internal function to compute the Fibonacci value uses memoization. This is the reason why N is saved as part of the tab data.
