@@ -10,7 +10,9 @@
   },
   "scripts": {
     "start": "mkdir -p ./build/dev && webpack --config ./webpack/webpack.config.dev.js",
-    "test": "mocha-webpack --webpack-config ./webpack/webpack.config.test.js \"test/unit/**/*.spec.js\""
+    "test": "mocha-webpack --webpack-config ./webpack/webpack.config.test.js \"test/unit/**/*.spec.js\"",
+    "webdriver-update": "webdriver-manager update",
+    "e2e": "npm run webdriver-update && protractor test/e2e/config.js"
   },
   "devDependencies": {
     "@babel/core": "7.4.4",
