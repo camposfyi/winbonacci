@@ -5,6 +5,10 @@ chrome.runtime.onInstalled.addListener(() => {
   initializeTabs();
 });
 
+chrome.runtime.onStartup.addListener(() => {
+  initializeTabs();
+});
+
 chrome.tabs.onCreated.addListener(tab => {
   tabManager.add(tab.id);
 
@@ -22,7 +26,7 @@ chrome.tabs.onActivated.addListener(({tabId}) => {
 });
 
 chrome.tabs.onUpdated.addListener( (tabId, changeInfo, tab) => {
-  if (changeInfo.status === 'complete' && !(tab.url === 'chrome://newtab/')) {
+  if (changeInfo.status === 'complete' && !tab.url.startsWith('chrome')) {
     tabManager.update(tab.id);
 
     if (tab.active) {
@@ -31,9 +35,23 @@ chrome.tabs.onUpdated.addListener( (tabId, changeInfo, tab) => {
   }
 });
 
-chrome.runtime.onMessage.addListener(message => {
-  if (message === 'winbonacci-reset') {
-    initializeTabs();
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+
+  switch (message.type) {
+
+    case 'winbonacci-reset':
+      initializeTabs();
+      sendResponse(true);
+      break;
+
+    case 'winbonacci-get-tab':
+      const tab = tabManager.get(message.tabId);
+      sendResponse(tab);
+      break;
+
+    default:
+      sendResponse('invalid message type');
+      break;
   }
 });
 

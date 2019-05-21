@@ -1,5 +1,5 @@
 import assert from 'assert';
-import fibonacci from '../src/js/lib/fibonacci';
+import fibonacci from '../../src/js/lib/fibonacci';
 
 describe('fibonacci.js', () => {
 

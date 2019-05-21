@@ -4,6 +4,7 @@ body {
 
 .reset-button-container {
   padding: 8px;
+  text-align: center;
 }
 
 #resetButton {
@@ -33,4 +34,22 @@ body {
   color: #f0f0f0;
   padding: 4px;
   text-align: center;
+}
+
+.stats {
+  width: 100%;
+  text-align: center;
+  padding: 6px 2px;
+}
+
+.stats label {
+  color: #DDD;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.stats span {
+  color: #29B6F6;
+  font-weight: 500;
+  font-size: 1.2em;
 }
