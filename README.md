@@ -16,7 +16,7 @@ Due to the computation of Fibonacci being expensive, the internal function to co
 #### Local Development
 
 ##### Installing
-```git clone https://github.com/jac0117/winbonacci.git```
+```git clone https://github.com/dev-ship-it/winbonacci.git```
 
 ```npm install```
 
@@ -26,4 +26,3 @@ Due to the computation of Fibonacci being expensive, the internal function to co
 ##### Testing
 ```npm test```
 
-Developed by [Jesus Campos](https://www.linkedin.com/in/software-craftsman "LinkedIn Profile")
