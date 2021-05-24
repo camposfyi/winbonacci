@@ -1,7 +1,7 @@
 # Winbonacci Chrome Extension
 
 #### What is it?
-This project was developed as part of the interview process for Winston Privacy [Winston Privacy](https://winstonprivacy.com)
+This project was developed as part of the interview process for [Winston Privacy](https://winstonprivacy.com)
 
 Winbonacci is a chrome extension that maintains a Fibonacci Sequence across all tabs in the browser. The extension works in the following way:
 * On start up, it assigns each open tab a value in the Fibonacci sequence starting with N = 1
